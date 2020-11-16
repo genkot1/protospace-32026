@@ -1,5 +1,5 @@
 class PrototypesController < ApplicationController
-  before_action :move_to_index, except: [:index]
+  before_action :move_to_index, except: [:index, :show]
   def index
     @user = current_user
     @prototypes = Prototype.all
@@ -16,6 +16,10 @@ class PrototypesController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @prototype = Prototype.find(params[:id])
   end
 
   private

@@ -2,6 +2,7 @@ class PrototypesController < ApplicationController
   before_action :move_to_index, except: [:index]
   def index
     @user = current_user
+    @prototypes = Prototype.all
   end
 
   def new
